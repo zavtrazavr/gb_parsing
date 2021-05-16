@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-# Scrapy settings for bookparser project
+# Scrapy settings for lesson_7 project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -8,15 +6,16 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+import os
 
-BOT_NAME = 'bookparser'
+BOT_NAME = 'lesson_7'
 
-SPIDER_MODULES = ['bookparser.spiders']
-NEWSPIDER_MODULE = 'bookparser.spiders'
+SPIDER_MODULES = ['lesson_7.spiders']
+NEWSPIDER_MODULE = 'lesson_7.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -33,7 +32,7 @@ DOWNLOAD_DELAY = 3
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = True
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -47,13 +46,13 @@ DOWNLOAD_DELAY = 3
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'bookparser.middlewares.BookparserSpiderMiddleware': 543,
+#    'lesson_7.middlewares.Lesson7SpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'bookparser.middlewares.BookparserDownloaderMiddleware': 543,
+#    'lesson_7.middlewares.Lesson7DownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -64,8 +63,11 @@ DOWNLOAD_DELAY = 3
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+IMAGES_STORE = 'images'
+
 ITEM_PIPELINES = {
-   'bookparser.pipelines.BookparserPipeline': 300,
+   'lesson_7.pipelines.Lesson7Pipeline': 300,
+   'lesson_7.pipelines.Lesson7ImagesPipeline': 299,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
