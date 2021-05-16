@@ -17,6 +17,10 @@ class LeroymerlinSpider(scrapy.Spider):
         for link in product_links:
             yield response.follow(link, callback=self.parse_item)
 
+        next_page = response.xpath('//a[contains(@aria-label, "Следующая страница")]/@href').get()
+        if next_page:
+            yield response.follow(next_page, callback=self.parse)
+
     def parse_item(self, response:HtmlResponse):
         loader = ItemLoader(item=Lesson7Item(), response=response)
 
